@@ -15,5 +15,7 @@ suspend fun main(args: Array<String>) {
         SimbrainDesktop.frame.setSize(1560, 960)
         SimbrainDesktop.main(emptyArray())
     }
-    flyBrainSimulation.run(desktop = SimbrainDesktop)
+    withContext(Dispatchers.Default) {
+        flyBrainSimulation.run(desktop = SimbrainDesktop)
+    }
 }
