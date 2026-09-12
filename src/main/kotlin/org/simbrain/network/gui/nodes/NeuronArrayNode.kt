@@ -1,3 +1,4 @@
+/** Native array display, with image colors scaled to the update rule's graphical bounds. */
 package org.simbrain.network.gui.nodes
 
 import kotlinx.coroutines.Dispatchers
@@ -299,6 +300,11 @@ class NeuronArrayNode(networkPanel: NetworkPanel, val neuronArray: NeuronArray) 
         spikeImage.removeAllChildren()
         biasImage.removeAllChildren()
         val activations = neuronArray.activations.toDoubleArray()
+        val lower = neuronArray.updateRule.graphicalLowerBound
+        val span = neuronArray.updateRule.graphicalUpperBound - lower
+        if (span > 0.0 && span.isFinite()) {
+            for (i in activations.indices) activations[i] = (2.0 * (activations[i] - lower) / span - 1.0).coerceIn(-1.0, 1.0)
+        }
 
         fun renderGridImages() {
             val len = ceil(sqrt(activations.size.toDouble())).toInt()

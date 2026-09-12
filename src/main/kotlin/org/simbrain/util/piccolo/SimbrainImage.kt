@@ -1,3 +1,4 @@
+/** Scales visible image regions efficiently while preserving alpha for overlays. */
 package org.simbrain.util.piccolo
 
 import org.piccolo2d.nodes.PImage
@@ -125,8 +126,9 @@ class SimbrainImage : PImage {
 
         if (contentDirty || regionChanged || scaledCache == null) {
             var cache = scaledCache
-            if (cache == null || cache.width < cacheW || cache.height < cacheH) {
-                cache = BufferedImage(cacheW, cacheH, BufferedImage.TYPE_INT_RGB)
+            val cacheType = if (img.colorModel.hasAlpha()) BufferedImage.TYPE_INT_ARGB else BufferedImage.TYPE_INT_RGB
+            if (cache == null || cache.width < cacheW || cache.height < cacheH || cache.type != cacheType) {
+                cache = BufferedImage(cacheW, cacheH, cacheType)
                 scaledCache = cache
             }
 

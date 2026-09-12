@@ -1,3 +1,4 @@
+/** Shared XStream configuration and Kotlin construction hooks, including compact persistence for large arrays. */
 @file:JvmName("XStreamUtils")
 
 package org.simbrain.util
@@ -54,6 +55,9 @@ fun getSimbrainXStream(): XStream {
             )
         )
         registerConverter(DoubleArrayConverter())
+        listOf(IntArray::class.java, LongArray::class.java, BooleanArray::class.java, Array<String>::class.java).forEach { type ->
+            registerConverter(CompactArrayConverter(type, converterLookup.lookupConverterForType(type)))
+        }
         registerConverter(MatrixConverter())
         registerConverter(BasicDataFrameConverter())
         registerConverter(

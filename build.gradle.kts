@@ -68,7 +68,7 @@ val simbrainJvmArgs = listOf(
 )
 
 application {
-    mainClass.set("org.simbrain.workspace.gui.Splasher")
+    mainClass.set(if (project.hasProperty("flyBrainDemo")) "org.simbrain.custom_sims.simulations.neuroscience.FlyBrainLauncherKt" else "org.simbrain.workspace.gui.Splasher")
     applicationDefaultJvmArgs = simbrainJvmArgs
 }
 

@@ -1,3 +1,4 @@
+/** Native vector neurons, including restoration of rule-specific state after deserialized property setters run. */
 package org.simbrain.network.core
 
 import org.simbrain.network.events.NeuronArrayEvents
@@ -27,6 +28,26 @@ import kotlin.math.sqrt
  * A "neuron array" backed by a Smile Matrix. Stored as a column vector.
  */
 class NeuronArray(inputSize: Int) : ArrayLayer(inputSize), EditableObject, AttributeContainer {
+
+    companion object : WithXStreamPropertyConverter {
+        override val xStreamPropertyConverter = createXStreamPropertyConverter<NeuronArray>(
+            marshal = {
+                on(NeuronArray::dataHolder) { writer, context ->
+                    writer.startNode("dataHolder")
+                    writer.addAttribute("class", this::class.java.name)
+                    context.convertAnother(this)
+                    writer.endNode()
+                }
+            },
+            unmarshal = {
+                on("dataHolder") { reader, context ->
+                    val restored = context.convertAnother(null, MatrixDataHolder::class.java) as MatrixDataHolder
+                    // Changing updateRule creates a fresh holder; restore saved state after all setters.
+                    withConstructedObject { dataHolder = restored }
+                }
+            }
+        )
+    }
 
     override var updateRule: NeuronUpdateRule<ScalarDataHolder, MatrixDataHolder> by GuiEditable(
         initValue = LinearRule(),

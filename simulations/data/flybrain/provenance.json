@@ -1,0 +1,15 @@
+{
+  "dataset": "FlyWire v783, female adult brain; Shiu et al. model tables",
+  "source_repository": "https://github.com/philshiu/Drosophila_brain_model",
+  "source_revision": "91bdd1e7dcf193f3e7ca5a8933497fcef63b7960",
+  "source_sha256": {
+    "Completeness_783.csv": "bbb847a4cc2caaa7a16349722d220c087317b946d148d4d592d94d250617a311",
+    "Connectivity_783.parquet": "efeb23fb99098e9c390f6869969b2a121a2ee92c833cfc45ecb2c1d8e1af0347"
+  },
+  "neurons": 138639,
+  "weighted_connections": 15091983,
+  "anatomical_contacts": 54492922,
+  "weight_conversion": "Excitatory x Connectivity * 0.275 mV",
+  "asset_sha256": "c5a22f7faeba1d52fbcbe883fff42527963cd51fe8d02c9f3d71d1e9ea011c16",
+  "format": "gzip; SBFLY001; big-endian int32 counts, int64 IDs, int32 source offsets, int32 targets, float64 weights"
+}
