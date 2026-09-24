@@ -19,3 +19,17 @@ Credit FlyWire, the consortium and the source model authors. Cite:
 - The Shiu et al. whole-brain model and released source linked above.
 
 The data providers have not endorsed this local Simbrain adaptation.
+
+`annotations-v783.tsv.gz` is a row-ordered subset of the v783 neuron annotations
+published by the FlyWire Consortium at
+https://github.com/flyconnectome/flywire_annotations/tree/v2.1.0 . The conversion
+preserves every annotation column for each neuron in the Shiu v783 model. It
+excludes annotation rows for neurons absent from that model. These data retain
+the FlyWire CC BY-NC 4.0 terms above. The annotation release is pinned to
+commit `ebd66db2596fcc39c6950fb54ea3efa00f7fe8a0`; the source and output
+checksums and coverage are in `tools/flybrain/annotation-coverage-v783.json`.
+
+Anchor and soma coordinates use FlyWire's 4×4×40 nm voxel space. Anchor
+positions are not necessarily somata or a ready-made two-dimensional GUI layout.
+Cell types and predicted neurotransmitters are annotations, not measured
+cell-specific membrane dynamics.

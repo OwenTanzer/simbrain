@@ -65,6 +65,24 @@ python -m pip install numpy pandas pyarrow
 python tools/flybrain/prepare_data.py
 ```
 
+To create the v783 neuron-annotation sidecar and its coverage report:
+
+```sh
+python tools/flybrain/prepare_annotations.py
+```
+
+This Python standard-library converter downloads checksummed input tables from
+the pinned Shiu revision and FlyWire annotation release v2.1.0. It writes
+`simulations/data/flybrain/annotations-v783.tsv.gz` in exactly the model's
+neuron order, with all annotation columns retained, and
+`tools/flybrain/annotation-coverage-v783.json` with field coverage and output
+checksum. The sidecar is separate from the simulation and does not change its
+firing dynamics or GUI. `root_id` is the join key; `pos_x/y/z` are anchor
+coordinates and `soma_x/y/z` are soma coordinates in 4×4×40 nm voxel space.
+Missing class/type labels should remain missing rather than be inferred from
+neighboring neurons. The annotation release is pinned because later revisions
+may alter labels even when the connectome materialization stays v783.
+
 The converter downloads pinned source tables and verifies both SHA-256 checksums before conversion. `provenance.json` records the output hash and binary schema. `reference_fixture.py` regenerates the small independent Brian2 oracle from the pinned source checkout; see its command-line usage. The ordinary JVM tests consume the recorded fixture, without requiring Brian2.
 
 ## Contribution boundaries
