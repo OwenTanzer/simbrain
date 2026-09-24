@@ -106,13 +106,16 @@ class FlyCircuitValidationSnapshot : UiSnapshotDef {
             if (condition == "C" && trial == 0) {
                 val run = async { runSecond() }
                 val latencies = mutableListOf<Double>()
+                val cameraLatencies = mutableListOf<Double>()
                 val chooser = components().filterIsInstance<JComboBox<*>>().single { it.itemCount == 43 }
                 repeat(100) { i ->
                     val start = System.nanoTime()
                     withContext(Dispatchers.Swing) { chooser.selectedIndex = i % 43 }
                     ready()
+                    withContext(Dispatchers.Swing) { observer!!.paintImmediately(0, 0, observer!!.width, observer!!.height) }
                     latencies.add((System.nanoTime()-start)/1e6)
                     if (i % 10 == 0) withContext(Dispatchers.Swing) {
+                        val cameraStart = System.nanoTime()
                         val all = descendants(observer!!)
                         val projection = all.filterIsInstance<JComboBox<*>>().single { it.itemCount == 3 }
                         projection.selectedIndex = (i/10) % 3
@@ -120,10 +123,12 @@ class FlyCircuitValidationSnapshot : UiSnapshotDef {
                         canvas.dispatchEvent(MouseWheelEvent(canvas, MouseEvent.MOUSE_WHEEL, System.currentTimeMillis(), 0, 220, 200, 0, false, MouseWheelEvent.WHEEL_UNIT_SCROLL, 1, if (i % 20 == 0) -1 else 1))
                         val table = all.filterIsInstance<JTable>().first()
                         table.rowSorter.toggleSortOrder(4)
+                        observer!!.paintImmediately(0, 0, observer!!.width, observer!!.height)
+                        cameraLatencies.add((System.nanoTime() - cameraStart) / 1e6)
                     }
                     delay(20)
                 }
-                record("selection_ms", latencies.joinToString(",")); times.add(run.await())
+                record("selection_ms", latencies.joinToString(",")); record("camera_sort_ms", cameraLatencies.joinToString(",")); times.add(run.await())
             } else times.add(runSecond())
             record("run_ms", times.joinToString(","))
         }
