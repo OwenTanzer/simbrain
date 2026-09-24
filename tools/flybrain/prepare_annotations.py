@@ -79,6 +79,8 @@ def main():
                 writer.writerows(rows[root_id] for root_id in ids)
 
     coverage = {field: sum(bool(rows[root_id][field]) for root_id in ids) for field in fields if field != "root_id"}
+    with gzip.open(args.output, "rb") as decompressed:
+        content_sha256 = hashlib.sha256(decompressed.read()).hexdigest()
     report = {
         "model_source": f"https://github.com/philshiu/Drosophila_brain_model/tree/{SHIU_REVISION}",
         "model_ids_sha256": SHIU_SHA256,
@@ -92,6 +94,7 @@ def main():
         "extra_annotation_rows": len(extra),
         "extra_annotation_ids_sample": sorted(extra)[:10],
         "nonempty_model_fields": coverage,
+        "content_sha256": content_sha256,
         "output_sha256": hashlib.sha256(args.output.read_bytes()).hexdigest(),
         "output_format": "gzip TSV in the Shiu v783 model's neuron order; root_id is the join key",
     }

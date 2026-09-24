@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Test
 import java.nio.file.Files
 import java.security.MessageDigest
+import java.util.zip.GZIPInputStream
 import java.util.zip.GZIPOutputStream
 
 class FlyAnnotationsTest {
@@ -19,7 +20,9 @@ class FlyAnnotationsTest {
             GZIPOutputStream(file.outputStream()).bufferedWriter().use {
                 it.write("supervoxel_id\troot_id\tcell_type\tside\n101\t11\tA\tleft\n202\t22\t\tright\n303\t33\tC\t\n")
             }
-            val checksum = MessageDigest.getInstance("SHA-256").digest(file.readBytes()).joinToString("") { "%02x".format(it) }
+            val checksum = MessageDigest.getInstance("SHA-256")
+                .digest(GZIPInputStream(file.inputStream()).use { it.readBytes() })
+                .joinToString("") { "%02x".format(it) }
             val lookup = FlyAnnotations(file.path, checksum)
             assertEquals("unassigned", lookup.at(graph, 1)?.value("cell_type"))
             assertEquals("right", lookup.at(graph, 1)?.value("side"))

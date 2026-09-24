@@ -18,7 +18,7 @@ class FlyAnnotations(
         val file = File(path)
         if (!file.isFile) return null
         val digest = MessageDigest.getInstance("SHA-256")
-        file.inputStream().buffered().use { input ->
+        GZIPInputStream(file.inputStream()).buffered().use { input ->
             val buffer = ByteArray(1024 * 1024)
             while (true) {
                 val count = input.read(buffer)
@@ -46,6 +46,6 @@ class FlyAnnotations(
 
     companion object {
         const val DEFAULT_PATH = "simulations/data/flybrain/annotations-v783.tsv.gz"
-        const val EXPECTED_SHA256 = "297a211a19f9decd45b39105ca52323a4601d7c364c0a7f59736c173cd6c7bab"
+        const val EXPECTED_SHA256 = "699d5d3e6745a2ff2436f4fad5987f8a8d5f7a747da2682a4f9f1e9c44bd7dc4"
     }
 }

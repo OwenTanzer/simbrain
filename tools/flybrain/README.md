@@ -82,6 +82,8 @@ firing dynamics. In the simulation, set a **Watch ID** and click **Apply + reset
 If the sidecar has not been generated, the wiring remains available in that dialog;
 a changed or corrupt sidecar produces a warning. `root_id` is the join key; `pos_x/y/z` are anchor
 coordinates and `soma_x/y/z` are soma coordinates in 4×4×40 nm voxel space.
+The reader verifies the hash of the decompressed TSV; gzip bytes may differ
+between compression libraries even when the annotation content is identical.
 Missing class/type labels should remain missing rather than be inferred from
 neighboring neurons. The annotation release is pinned because later revisions
 may alter labels even when the connectome materialization stays v783.
