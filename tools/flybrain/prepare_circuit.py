@@ -19,6 +19,8 @@ def archive(path, entries):
     with zipfile.ZipFile(path, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as out:
         for name, content in sorted(entries.items()):
             info = zipfile.ZipInfo(name, (2026, 1, 1, 0, 0, 0))
+            info.create_system = 3
+            info.external_attr = 0o600 << 16
             info.compress_type = zipfile.ZIP_DEFLATED
             out.writestr(info, content)
     return hashlib.sha256(path.read_bytes()).hexdigest()

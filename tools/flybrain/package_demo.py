@@ -26,6 +26,7 @@ def main():
     shutil.copytree(root / "simulations/data/flybrain", stage / "simulations/data/flybrain", dirs_exist_ok=True)
     shutil.copytree(root / "build/flybrain-demo", stage / "example-experiment", dirs_exist_ok=True)
     shutil.copy2(root / "tools/flybrain/README.md", stage / "README.md")
+    shutil.copy2(root / "tools/flybrain/CIRCUIT.md", stage / "CIRCUIT.md")
     (stage / "licenses").mkdir(exist_ok=True)
     shutil.copy2(root / "LICENSE", stage / "licenses/SIMBRAIN-GPL.txt")
     shutil.copy2(root / "tools/flybrain/SHIU_LICENSE.txt", stage / "licenses/SHIU-MIT.txt")

@@ -92,7 +92,7 @@ class FlyCircuitPanel(
         }
         details.add(tables, BorderLayout.CENTER)
         details.preferredSize = Dimension(480, 500); details.minimumSize = Dimension(330, 250)
-        val split = JSplitPane(JSplitPane.HORIZONTAL_SPLIT, center, details).apply { resizeWeight = .60; dividerLocation = 680 }
+        val split = JSplitPane(JSplitPane.HORIZONTAL_SPLIT, center, details).apply { resizeWeight = .60; dividerLocation = 620 }
         add(split, BorderLayout.CENTER)
         worker.execute {
             try {
@@ -199,7 +199,7 @@ class FlyCircuitPanel(
         name = title; autoCreateRowSorter = true; autoResizeMode = JTable.AUTO_RESIZE_OFF
         setSelectionMode(ListSelectionModel.SINGLE_SELECTION)
         toolTipText = "Double-click to inspect the partner. Weight is canonical model synaptic drive (mV); contacts are verified source counts when available."
-        val widths = intArrayOf(155, 100, 55, 80, 90, 85)
+        val widths = intArrayOf(150, 90, 45, 65, 90, 75)
         widths.forEachIndexed { i, w -> columnModel.getColumn(i).preferredWidth = w }
         addMouseListener(object : MouseAdapter() {
             override fun mouseClicked(e: MouseEvent) {

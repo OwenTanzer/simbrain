@@ -33,3 +33,14 @@ Anchor and soma coordinates use FlyWire's 4×4×40 nm voxel space. Anchor
 positions are not necessarily somata or a ready-made two-dimensional GUI layout.
 Cell types and predicted neurotransmitters are annotations, not measured
 cell-specific membrane dynamics.
+
+`feeding-circuit.zip` is a selected re-encoding of the pinned v783 annotations,
+contact table and anatomical anchor coordinates. `feeding-skeletons.zip` retains
+43 native skeleton binaries from the public FlyWire v783 skeleton endpoint
+served by FlyConnectome at the MRC Laboratory of Molecular Biology. These data
+retain their source attribution and FlyWire terms, separately from the software.
+Source URLs, exact IDs, transformations and checksums are recorded in
+`tools/flybrain/CIRCUIT.md` and `tools/flybrain/circuit/`. Cite the FlyWire papers
+above, Shiu et al. (2024), DOI 10.1038/s41586-024-07763-9, and Shiu, Sterne et al.
+(2022), DOI 10.7554/eLife.79887. Circuit membership is a documented display subset;
+no claim is made that it constitutes a complete or isolated feeding circuit.

@@ -105,3 +105,11 @@ Before upstream inclusion, Jeff can decide naming, preferred UI layout, whether 
 - Schlegel et al., *Whole-brain annotation and multi-connectome cell typing of Drosophila*, Nature (2024), https://doi.org/10.1038/s41586-024-07686-5.
 
 This build has not been submitted to Jeff or published as a pull request.
+
+## Feeding circuit explorer
+
+**Explore feeding circuit** opens the identified 43-neuron sugar-responsive pathway
+with physical arbors, a directed connectivity schematic, and complete incoming and
+outgoing tables. All whole-brain wiring and dynamics remain active. Selection does
+not reset the experiment. See [CIRCUIT.md](CIRCUIT.md) for controls, exact identity
+provenance, asset generation, limitations and the reproducible validation protocol.
