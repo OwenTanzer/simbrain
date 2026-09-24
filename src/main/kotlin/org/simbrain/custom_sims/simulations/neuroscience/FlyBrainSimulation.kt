@@ -195,9 +195,9 @@ private suspend fun SimulationScope.setupFlyBrain(workspace: Workspace) {
             explorer = GenericJInternalFrame("Feeding circuit · whole-brain observer", true, true, true, true).apply {
                 defaultCloseOperation = javax.swing.WindowConstants.DISPOSE_ON_CLOSE
                 contentPane = panel
-                val availableWidth = desktopPane.width.takeIf { it > 0 } ?: 1560
-                val availableHeight = desktopPane.height.takeIf { it > 0 } ?: 780
-                val desiredX = desktopPane.allFrames.firstOrNull { it.title == "Fly brain · experiment" }
+                val availableWidth = this@withGui.desktopPane.width.takeIf { it > 0 } ?: 1560
+                val availableHeight = this@withGui.desktopPane.height.takeIf { it > 0 } ?: 780
+                val desiredX = this@withGui.desktopPane.allFrames.firstOrNull { it.title == "Fly brain · experiment" }
                     ?.let { it.x + it.width + SIM_WINDOW_GAP } ?: 370
                 val x = desiredX.coerceAtMost((availableWidth - 900).coerceAtLeast(SIM_WINDOW_GAP))
                 setBounds(x, SIM_WINDOW_GAP, (availableWidth - x - SIM_WINDOW_GAP).coerceIn(800, 1180),
