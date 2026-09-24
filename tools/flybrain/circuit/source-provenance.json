@@ -1,0 +1,39 @@
+{
+  "researched_utc": "2026-09-24",
+  "issue": "https://github.com/OwenTanzer/simbrain/issues/3",
+  "simbrain_baseline_commit": "63a08a87c0c01b948a8804b2a5d1d5e07a298ecf",
+  "shiu_repository_commit": "91bdd1e7dcf193f3e7ca5a8933497fcef63b7960",
+  "shiu_repository_url": "https://github.com/philshiu/Drosophila_brain_model/tree/91bdd1e7dcf193f3e7ca5a8933497fcef63b7960",
+  "annotation_release": "v2.1.0",
+  "annotation_commit": "ebd66db2596fcc39c6950fb54ea3efa00f7fe8a0",
+  "annotation_source_sha256": "30be6c73975a70c56d930e27911f36455d3886e15abf383b78edd2a5d679e0b6",
+  "joined_annotation_decompressed_sha256": "699d5d3e6745a2ff2436f4fad5987f8a8d5f7a747da2682a4f9f1e9c44bd7dc4",
+  "simbrain_graph_gzip_sha256": "ac2308df622b5cb0bf6191aec3e37cc2e640ae275db1d40fc1fc357f653a6f65",
+  "skeleton_base_url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/",
+  "skeleton_coordinates": "nanometres; identity transform; see source/skeleton-info",
+  "annotation_coordinates": "voxels at 4 x 4 x 40 nanometres; anchor and soma are separate fields",
+  "papers": [
+    {
+      "title": "A Drosophila computational brain model reveals sensorimotor processing",
+      "doi": "10.1038/s41586-024-07763-9",
+      "supplement": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11446845/supplementaryFiles"
+    },
+    {
+      "title": "Taste quality and hunger interactions in a feeding sensorimotor circuit",
+      "doi": "10.7554/eLife.79887"
+    },
+    {
+      "title": "Whole-brain annotation and multi-connectome cell typing of Drosophila",
+      "doi": "10.1038/s41586-024-07686-5"
+    }
+  ],
+  "local_source_sha256": {
+    "Completeness_783.csv": "bbb847a4cc2caaa7a16349722d220c087317b946d148d4d592d94d250617a311",
+    "Connectivity_783.parquet": "efeb23fb99098e9c390f6869969b2a121a2ee92c833cfc45ecb2c1d8e1af0347",
+    "sez_neurons.pickle": "2bc5a2a8289924f2de39a8e68bdc07025cb6d6c6c6ddc83a973c0cace7cec2ce",
+    "model-supplement.xlsx": "6922e16825aa0c92a28e2a634b073dcad7641e9c9283c4b9d8ee1e34e6d9b8d9",
+    "skeleton-info": "13489fc0a8739a19547be94abde9ba7cd07c24fafcfeb448ecf4aa4ccb7432f2"
+  },
+  "skeleton_checksums_file_sha256": "6b31ac121c407d137ac0eb00ef81f157ff3ada62e86646d03d7a35d85eb11142",
+  "status": "Research and proposed implementation specification. No interactive circuit viewer implemented and no new viewer performance measurements."
+}

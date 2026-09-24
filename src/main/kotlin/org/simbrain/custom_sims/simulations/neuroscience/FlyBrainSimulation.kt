@@ -13,6 +13,9 @@ import org.simbrain.network.NetworkComponent
 import org.simbrain.network.core.NeuronArray
 import org.simbrain.plot.timeseries.TimeSeriesPlotComponent
 import org.simbrain.util.*
+import org.simbrain.util.genericframe.GenericJInternalFrame
+import javax.swing.event.InternalFrameAdapter
+import javax.swing.event.InternalFrameEvent
 import org.simbrain.workspace.Workspace
 import java.awt.Dimension
 import java.io.File
@@ -59,7 +62,7 @@ val flyBrainSimulation = newSim("flywire_v783") { optionString ->
         Compare with **Stimulus on/off**, then **Reset experiment** and run again.
         The plots use milliseconds; the status shows total spikes and the watched neuron's spike count.
 
-        ## Controls
+        ## Control Panel Settings
         - **Input IDs:** comma- or space-separated FlyWire IDs receiving independent Poisson input.
         - **Input rate (Hz):** per-neuron input rate, from 0 to 1,000 Hz.
         - **Silenced IDs:** block these neurons' outgoing transmission; their own firing remains possible.
@@ -72,12 +75,31 @@ val flyBrainSimulation = newSim("flywire_v783") { optionString ->
         - **Stop:** stop a fixed run or continuous toolbar run.
         - **Reset experiment:** clear voltage, currents, delay queues, counts, recordings and plots; keep settings.
         - **Export experiment:** choose a folder for spike events, all-neuron counts and experiment metadata.
+        - **Explore feeding circuit:** open the 43-neuron sugar-responsive pathway inside the running whole-brain model.
+        - **Circuit Neuron ID / Inspect ID:** navigate by exact ID without resetting or changing the watched voltage trace.
+        - **Circuit neuron chooser:** select a literature-identified member of the preset.
+        - **Anatomy / Connectivity:** switch between physical arbors and a schematic of actual directed connections.
+        - **XY / XZ / YZ:** choose physical dataset axes in micrometres; the vertical coordinate increases downward.
+        - **Brain context:** show a sampled whole-brain anchor cloud. Circles are anchors; squares are available somata.
+        - **All internal edges:** show all schematic edges, capped at 2,000 with displayed/total counts; otherwise show selected-neuron edges.
+        - **Fit view:** restore camera scale and position; drag to pan and use the mouse wheel to zoom.
+        - **Add selected:** extend the canvas to an inspected partner, up to 100 neurons; outside anatomy may be unavailable.
+        - **Reset circuit view:** restore preset membership and MN9 selection without resetting neural dynamics.
+        - **Incoming / Outgoing tables:** sort and scroll complete directed connections, including outside partners. Double-click a row to follow its partner.
+        - **Circuit connection columns:** source contact counts where verified (blank means unavailable), canonical signed model weights in mV, and preset membership. Weights increment synaptic drive; arrows do not locate individual synapses.
+        - **Circuit close button:** stop observer workers; reopening preserves selection, projection and camera. Save Workspace also preserves an open view.
         - **Inspect watch neuron:** show the watched neuron's v783 annotation (when installed), outgoing connection count and ten strongest targets.
 
         Use Simbrain's **File → Save Workspace** to preserve state, settings and pending spikes.
         Reopening restores controls and plots; keep the pinned data file at the same relative path.
         Existing array producers and consumers support further Simbrain couplings. Array inputs add mV once
         per network update; array spike flags report whether each neuron spiked anywhere in that update.
+
+        The feeding view contains 20 retained left sugar inputs, 22 named pathway neurons and right MN9.
+        It has 579 internal edges plus 4,668 incoming and 4,604 outgoing boundary edges; all outside wiring
+        remains active. The old source notebook's right-sugar wording conflicts with v783 left annotations.
+        An absent historical left MN9 is not replaced by a guessed ID. Literature aliases and current types
+        are separate fields. Bract is a family label; ambiguous Roundtree aliases are excluded.
 
         ## Model and scope
         Exact linear LIF integration at 0.1 ms; Simbrain updates/plots every 1 ms.
@@ -164,6 +186,24 @@ private suspend fun SimulationScope.setupFlyBrain(workspace: Workspace) {
         if (state.tick % 100L == 0L) refreshStatus()
     })
     withGui {
+        var explorer: GenericJInternalFrame? = null
+        fun openCircuit() {
+            explorer?.takeIf { !it.isClosed }?.let { it.isIcon = false; it.moveToFront(); return }
+            val view = state.circuitView ?: FlyCircuitViewState().also { state.circuitView = it }
+            view.open = true
+            val panel = FlyCircuitPanel(state, view)
+            explorer = GenericJInternalFrame("Feeding circuit · whole-brain observer", true, true, true, true).apply {
+                defaultCloseOperation = javax.swing.WindowConstants.DISPOSE_ON_CLOSE
+                contentPane = panel
+                setBounds(360 + SIM_WINDOW_GAP, SIM_WINDOW_GAP, 1180, 720)
+                addInternalFrameListener(object : InternalFrameAdapter() {
+                    override fun internalFrameClosed(e: InternalFrameEvent) { panel.close(); explorer = null }
+                })
+                addInternalFrame(this)
+                isVisible = true
+                moveToFront()
+            }
+        }
         val controls = createControlPanel("Fly brain · experiment", SIM_WINDOW_GAP, SIM_WINDOW_GAP) {
             addLabel("<html><b>FlyWire v783</b><br>138,639 neurons · 15.09 million edges</html>")
             val inputs = addTextField("Input IDs", state.stimulusIndices.joinToString(",") { graph.ids[it].toString() }, toolTip = "Comma- or space-separated FlyWire sensory neuron IDs.").apply { columns = 23 }
@@ -224,6 +264,8 @@ private suspend fun SimulationScope.setupFlyBrain(workspace: Workspace) {
                     withContext(Dispatchers.Swing) { showMessageDialog("Saved experiment to ${destination.absolutePath}", "Experiment exported") }
                 }
             }.toolTipText = "Export exact spike times, all neuron counts and settings to a new folder."
+            addButton("Explore feeding circuit") { withContext(Dispatchers.Swing) { openCircuit() } }
+                .toolTipText = "Explore the identified sugar-to-MN9 pathway, its anatomy and all incoming/outgoing connections."
             addButton("Inspect watch neuron") {
                 val i = state.watchIndex
                 val annotation = try {
@@ -255,6 +297,7 @@ private suspend fun SimulationScope.setupFlyBrain(workspace: Workspace) {
         place(plots[0], x, 420 + SIM_WINDOW_GAP, 560, 290)
         place(plots[1], x + 560 + SIM_WINDOW_GAP, SIM_WINDOW_GAP, 500, 410)
         getNetworkPanel(component).network.events.zoomToFitPage.fire()
+        if (state.circuitView?.open == true) openCircuit()
     }
 }
 

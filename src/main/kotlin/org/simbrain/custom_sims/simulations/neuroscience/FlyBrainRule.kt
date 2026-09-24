@@ -48,6 +48,7 @@ class FlyBrainRule : SpikingNeuronUpdateRule<SpikingScalarData, FlyBrainState>()
 class FlyBrainState(size: Int) : SpikingMatrixData(size) {
     var graphPath = FlyConnectome.DEFAULT_PATH
     var graphFingerprint = ""
+    var circuitView: FlyCircuitViewState? = null
     @Transient private var loadedGraph: FlyConnectome? = null
     var voltage = DoubleArray(size) { REST }
     var synapticDrive = DoubleArray(size)
@@ -166,6 +167,7 @@ class FlyBrainState(size: Int) : SpikingMatrixData(size) {
 
     override fun copy() = FlyBrainState(size).also { c ->
         commonCopy(c)
+        c.circuitView = circuitView?.copy()
         c.graphPath = graphPath; c.graphFingerprint = graphFingerprint; c.loadedGraph = loadedGraph
         c.voltage = voltage.copyOf(); c.synapticDrive = synapticDrive.copyOf()
         c.lastSpikeStep = lastSpikeStep.copyOf(); c.counts = counts.copyOf(); c.silenced = silenced.copyOf()
