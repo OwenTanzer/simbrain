@@ -72,7 +72,7 @@ val flyBrainSimulation = newSim("flywire_v783") { optionString ->
         - **Stop:** stop a fixed run or continuous toolbar run.
         - **Reset experiment:** clear voltage, currents, delay queues, counts, recordings and plots; keep settings.
         - **Export experiment:** choose a folder for spike events, all-neuron counts and experiment metadata.
-        - **Inspect watch wiring:** show the watched neuron's outgoing connection count and ten strongest targets.
+        - **Inspect watch neuron:** show the watched neuron's v783 annotation (when installed), outgoing connection count and ten strongest targets.
 
         Use Simbrain's **File → Save Workspace** to preserve state, settings and pending spikes.
         Reopening restores controls and plots; keep the pinned data file at the same relative path.
@@ -224,12 +224,30 @@ private suspend fun SimulationScope.setupFlyBrain(workspace: Workspace) {
                     withContext(Dispatchers.Swing) { showMessageDialog("Saved experiment to ${destination.absolutePath}", "Experiment exported") }
                 }
             }.toolTipText = "Export exact spike times, all neuron counts and settings to a new folder."
-            addButton("Inspect watch wiring", context = Dispatchers.Swing) {
+            addButton("Inspect watch neuron") {
                 val i = state.watchIndex
+                val annotation = try {
+                    withContext(Dispatchers.IO) { FlyAnnotations().at(graph, i) }
+                } catch (e: Exception) {
+                    withContext(Dispatchers.Swing) { showWarningDialog(e.message ?: "Could not read fly annotations.", "Fly annotations") }
+                    return@addButton
+                }
+                val identity = if (annotation == null) {
+                    "Annotations unavailable. Run python tools/flybrain/prepare_annotations.py to install the v783 sidecar."
+                } else {
+                    """Cell type: ${annotation.value("cell_type")}
+                       |Class: ${annotation.value("cell_class")} · superclass: ${annotation.value("super_class")}
+                       |Side: ${annotation.value("side")}
+                       |Predicted transmitter: ${annotation.value("top_nt")} (confidence: ${annotation.value("top_nt_conf")})
+                       |Anchor (4×4×40 nm voxels): ${annotation.value("pos_x")}, ${annotation.value("pos_y")}, ${annotation.value("pos_z")}
+                       |Soma (same voxel space): ${annotation.value("soma_x")}, ${annotation.value("soma_y")}, ${annotation.value("soma_z")}""".trimMargin()
+                }
                 val edges = (graph.offsets[i] until graph.offsets[i + 1]).sortedByDescending { kotlin.math.abs(graph.weights[it]) }
                 val details = edges.take(10).joinToString("\n") { "${graph.ids[graph.targets[it]]}: %.3f mV".format(graph.weights[it]) }
-                showMessageDialog("Neuron ${graph.ids[i]}\n${edges.size} outgoing targets\n\nStrongest targets:\n$details", "Watch wiring")
-            }.toolTipText = "Inspect the strongest signed outgoing weights for the watched neuron."
+                withContext(Dispatchers.Swing) {
+                    showMessageDialog("Neuron ${graph.ids[i]}\n$identity\n\n${edges.size} outgoing targets\n\nStrongest targets:\n$details", "Watch neuron")
+                }
+            }.toolTipText = "Inspect the watched neuron's FlyWire annotation and strongest outgoing weights."
             status = addLabel(statusText()).apply { preferredSize = Dimension(350, 45) }
         }.awaitLayout()
         val x = SIM_WINDOW_GAP + controls.width + SIM_WINDOW_GAP
