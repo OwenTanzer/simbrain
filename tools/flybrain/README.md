@@ -76,9 +76,14 @@ the pinned Shiu revision and FlyWire annotation release v2.1.0. It writes
 `simulations/data/flybrain/annotations-v783.tsv.gz` in exactly the model's
 neuron order, with all annotation columns retained, and
 `tools/flybrain/annotation-coverage-v783.json` with field coverage and output
-checksum. The sidecar is separate from the simulation and does not change its
-firing dynamics or GUI. `root_id` is the join key; `pos_x/y/z` are anchor
+content checksum. The sidecar is separate from the simulation and does not change its
+firing dynamics. In the simulation, set a **Watch ID** and click **Apply + reset**, then
+**Inspect watch neuron** to see its annotation and strongest outgoing connections.
+If the sidecar has not been generated, the wiring remains available in that dialog;
+a changed or corrupt sidecar produces a warning. `root_id` is the join key; `pos_x/y/z` are anchor
 coordinates and `soma_x/y/z` are soma coordinates in 4×4×40 nm voxel space.
+The reader verifies the hash of the decompressed TSV; gzip bytes may differ
+between compression libraries even when the annotation content is identical.
 Missing class/type labels should remain missing rather than be inferred from
 neighboring neurons. The annotation release is pinned because later revisions
 may alter labels even when the connectome materialization stays v783.

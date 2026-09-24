@@ -46,7 +46,7 @@ def main():
         ANNOTATION_SHA256,
     )
 
-    with completeness.open(newline="") as stream:
+    with completeness.open(encoding="utf-8", newline="") as stream:
         reader = csv.DictReader(stream)
         if not reader.fieldnames or reader.fieldnames[0] != "":
             raise ValueError("Unexpected completeness ID column")
@@ -54,7 +54,7 @@ def main():
     if len(ids) != 138639 or len(set(ids)) != len(ids) or not all(i.isdecimal() for i in ids):
         raise ValueError("Unexpected model neuron IDs")
 
-    with annotations.open(newline="") as stream:
+    with annotations.open(encoding="utf-8", newline="") as stream:
         reader = csv.DictReader(stream, delimiter="\t")
         fields = reader.fieldnames
         if not fields or "root_id" not in fields or len(fields) != len(set(fields)):
@@ -79,6 +79,8 @@ def main():
                 writer.writerows(rows[root_id] for root_id in ids)
 
     coverage = {field: sum(bool(rows[root_id][field]) for root_id in ids) for field in fields if field != "root_id"}
+    with gzip.open(args.output, "rb") as decompressed:
+        content_sha256 = hashlib.sha256(decompressed.read()).hexdigest()
     report = {
         "model_source": f"https://github.com/philshiu/Drosophila_brain_model/tree/{SHIU_REVISION}",
         "model_ids_sha256": SHIU_SHA256,
@@ -92,7 +94,7 @@ def main():
         "extra_annotation_rows": len(extra),
         "extra_annotation_ids_sample": sorted(extra)[:10],
         "nonempty_model_fields": coverage,
-        "output_sha256": hashlib.sha256(args.output.read_bytes()).hexdigest(),
+        "content_sha256": content_sha256,
         "output_format": "gzip TSV in the Shiu v783 model's neuron order; root_id is the join key",
     }
     args.report.parent.mkdir(parents=True, exist_ok=True)
