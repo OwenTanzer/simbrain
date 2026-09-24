@@ -46,7 +46,7 @@ def main():
         ANNOTATION_SHA256,
     )
 
-    with completeness.open(newline="") as stream:
+    with completeness.open(encoding="utf-8", newline="") as stream:
         reader = csv.DictReader(stream)
         if not reader.fieldnames or reader.fieldnames[0] != "":
             raise ValueError("Unexpected completeness ID column")
@@ -54,7 +54,7 @@ def main():
     if len(ids) != 138639 or len(set(ids)) != len(ids) or not all(i.isdecimal() for i in ids):
         raise ValueError("Unexpected model neuron IDs")
 
-    with annotations.open(newline="") as stream:
+    with annotations.open(encoding="utf-8", newline="") as stream:
         reader = csv.DictReader(stream, delimiter="\t")
         fields = reader.fieldnames
         if not fields or "root_id" not in fields or len(fields) != len(set(fields)):
