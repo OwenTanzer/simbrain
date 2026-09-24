@@ -282,6 +282,15 @@ tasks.register<JavaExec>("uiSnapshot") {
     }
 }
 
+// Runs on a real desktop with the full v783 data; condition A/B/C is supplied through the environment.
+tasks.register<JavaExec>("validateFlyCircuit") {
+    jvmArgs(simbrainJvmArgs)
+    maxHeapSize = "2g"
+    classpath = sourceSets["snapshots"].runtimeClasspath
+    mainClass.set("org.simbrain.util.uisnapshot.UiSnapshotKt")
+    args("org.simbrain.util.uisnapshot.FlyCircuitValidationSnapshot", "light", "1", "false")
+}
+
 tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions {
         jvmTarget = "17"
