@@ -32,6 +32,7 @@ internal class FlyCircuitCanvas(
         private set
 
     init {
+        name = "Circuit canvas"
         preferredSize = Dimension(700, 540)
         minimumSize = Dimension(300, 250)
         background = Color(250, 251, 253)
@@ -103,7 +104,7 @@ internal class FlyCircuitCanvas(
             var column = 0
             groups.forEach { (_, members) ->
                 val col = column % 4; val row = column / 4
-                members.sorted().forEachIndexed { j, i -> positions[i] = Point2D.Double(col * 200.0 + (j % 5) * 30, row * 170.0 + (j / 5) * 32) }
+                members.sorted().forEachIndexed { j, i -> positions[i] = Point2D.Double(col * 230.0 + (j % (if (members.size > 4) 5 else 2)) * (if (members.size > 4) 36 else 105), row * 170.0 + (j / (if (members.size > 4) 5 else 2)) * 32) }
                 column++
             }
         }
@@ -165,7 +166,7 @@ internal class FlyCircuitCanvas(
             if (view.mode == "Anatomy") point(i, true)?.let { soma -> val t = screen(soma); g.drawRect(t.x.toInt()-3, t.y.toInt()-3, 6, 6) }
             if (view.mode == "Connectivity" || i == selected) {
                 g.font = font.deriveFont(11f)
-                val label = circuit.name(i) + " " + (circuit.annotations[i]?.fields?.get("side")?.take(1) ?: "?")
+                val label = if (circuit.name(i) == "sugar_input") "S${circuit.members.filter { circuit.name(it) == "sugar_input" }.indexOf(i)+1}" else circuit.name(i) + " " + (circuit.annotations[i]?.fields?.get("side")?.take(1) ?: "?")
                 g.drawString(label, (s.x+7).toFloat(), (s.y-6).toFloat())
             }
         }

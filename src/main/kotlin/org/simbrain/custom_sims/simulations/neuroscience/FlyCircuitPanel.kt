@@ -32,11 +32,11 @@ class FlyCircuitPanel(
     private val outgoingModel = Connections(false)
     val incomingTable = table(incomingModel, "Incoming connections")
     val outgoingTable = table(outgoingModel, "Outgoing connections")
-    private var loadingSelection = false
+    @Volatile private var loadingSelection = true
     private var snapshotPending = false
     private val extraAnnotations = ArrayDeque<Int>()
     private val refresh = Timer(100) { refreshActivity() }
-    val ready get() = circuit != null && !loadingSelection && !disposed
+    val ready get() = circuit != null && generation > 0 && !loadingSelection && !disposed
 
     init {
         name = "Feeding circuit explorer"
@@ -152,7 +152,7 @@ class FlyCircuitPanel(
             if (disposed || request != generation) return@execute
             try {
                 var annotationWarning = ""
-                if (index !in c.annotations) {
+                if (!c.annotations.containsKey(index)) {
                     try {
                         FlyAnnotations().at(c.graph, index)?.let {
                             c.annotations[index] = it; extraAnnotations.addLast(index)
@@ -197,7 +197,7 @@ class FlyCircuitPanel(
 
     private fun table(model: Connections, title: String) = JTable(model).apply {
         name = title; autoCreateRowSorter = true; autoResizeMode = JTable.AUTO_RESIZE_OFF
-        selectionMode = ListSelectionModel.SINGLE_SELECTION
+        setSelectionMode(ListSelectionModel.SINGLE_SELECTION)
         toolTipText = "Double-click to inspect the partner. Weight is canonical model synaptic drive (mV); contacts are verified source counts when available."
         val widths = intArrayOf(155, 100, 55, 80, 90, 85)
         widths.forEachIndexed { i, w -> columnModel.getColumn(i).preferredWidth = w }
