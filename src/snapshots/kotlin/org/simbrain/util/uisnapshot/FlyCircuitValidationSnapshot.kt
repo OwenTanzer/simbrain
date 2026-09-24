@@ -25,7 +25,7 @@ class FlyCircuitValidationSnapshot : UiSnapshotDef {
         fun record(key: String, value: Any) {
             metrics[key] = value.toString()
             File(directory, "metrics.tsv").writeText("metric\tvalue\n" + metrics.entries.joinToString("\n") { "${it.key}\t${it.value}" } + "\n")
-            println("CIRCUIT $condition $key=$value")
+            println("CIRCUIT $condition $key=" + value.toString().let { if (it.length > 500) "${it.length} characters recorded" else it })
         }
         record("condition", condition); record("java", System.getProperty("java.version"))
         record("pid", ProcessHandle.current().pid()); record("max_heap_bytes", Runtime.getRuntime().maxMemory())
@@ -65,6 +65,7 @@ class FlyCircuitValidationSnapshot : UiSnapshotDef {
         suspend fun ready() = await { observer?.let { it.javaClass.getMethod("getReady").invoke(it) as Boolean } == true }
         suspend fun open(): Double {
             val started = System.nanoTime(); click("Explore feeding circuit")
+            await { descendants(SimbrainDesktop.desktopPane).any { it.name == "Feeding circuit explorer" } }
             observer = components().filterIsInstance<JComponent>().single { it.name == "Feeding circuit explorer" }
             ready()
             withContext(Dispatchers.Swing) { observer!!.paintImmediately(0, 0, observer!!.width, observer!!.height) }
@@ -160,6 +161,7 @@ class FlyCircuitValidationSnapshot : UiSnapshotDef {
             workspace.simulationId = "flywire_v783"
             workspace.save(saved, headless = false)
             workspace.openWorkspace(saved, useDesktop = true)
+            await { descendants(SimbrainDesktop.desktopPane).any { it.name == "Feeding circuit explorer" } }
             observer = components().filterIsInstance<JComponent>().single { it.name == "Feeding circuit explorer" }
             ready(); check(state().tick == 10000L && state().counts.sum() == 8553L)
             check(withContext(Dispatchers.Swing) { descendants(observer!!).filterIsInstance<JComboBox<*>>().single { it.itemCount == 2 }.selectedItem == "Connectivity" })
