@@ -18,9 +18,11 @@ internal class FlyCircuitCanvas(
 ) : JPanel() {
     var displayed = circuit.members.toMutableSet()
     var selected = circuit.graph.index(view.selectedId)
+        set(value) { field = value; selectionImage = null }
     private val positions = mutableMapOf<Int, Point2D.Double>()
     private val paths = mutableMapOf<Pair<Int, String>, Path2D.Float>()
     private var image: BufferedImage? = null
+    private var selectionImage: BufferedImage? = null
     private var scale = 1.0
     private var left = 0.0
     private var top = 0.0
@@ -56,7 +58,7 @@ internal class FlyCircuitCanvas(
         addMouseListener(mouse); addMouseMotionListener(mouse); addMouseWheelListener(mouse)
     }
 
-    fun invalidateDrawing() { image = null; repaint() }
+    fun invalidateDrawing() { image = null; selectionImage = null; repaint() }
     fun fit() { view.zoom = 1.0; view.panX = 0.0; view.panY = 0.0; invalidateDrawing() }
     private fun axes() = when (view.projection) { "XZ" -> 0 to 2; "YZ" -> 1 to 2; else -> 0 to 1 }
     private fun point(index: Int, soma: Boolean = false): Point2D.Double? {
@@ -85,14 +87,22 @@ internal class FlyCircuitCanvas(
         super.paintComponent(graphics)
         if (width < 1 || height < 1) return
         if (image?.width != width || image?.height != height) {
+            selectionImage = null
             image = BufferedImage(width, height, BufferedImage.TYPE_INT_RGB).also { buffer ->
                 val g = buffer.createGraphics()
                 try { drawBase(g) } finally { g.dispose() }
             }
         }
-        graphics.drawImage(image, 0, 0, null)
-        val overlay = graphics.create() as Graphics2D
-        try { drawSelection(overlay) } finally { overlay.dispose() }
+        if (selectionImage == null) {
+            selectionImage = BufferedImage(width, height, BufferedImage.TYPE_INT_RGB).also { buffer ->
+                val overlay = buffer.createGraphics()
+                try {
+                    overlay.drawImage(image, 0, 0, null)
+                    drawSelection(overlay)
+                } finally { overlay.dispose() }
+            }
+        }
+        graphics.drawImage(selectionImage, 0, 0, null)
     }
 
     private fun drawBase(g: Graphics2D) {
