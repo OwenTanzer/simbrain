@@ -31,12 +31,13 @@ class FlyAnnotations(
 
         return GZIPInputStream(file.inputStream()).bufferedReader().use { reader ->
             val header = reader.readLine()?.split('\t') ?: error("Empty fly annotation sidecar")
-            require(header.firstOrNull() == "root_id" && header.distinct().size == header.size) {
+            val idColumn = header.indexOf("root_id")
+            require(idColumn >= 0 && header.distinct().size == header.size) {
                 "Invalid fly annotation header"
             }
             repeat(index) { require(reader.readLine() != null) { "Fly annotations end before neuron index $index" } }
             val row = reader.readLine()?.split('\t') ?: error("Fly annotations end before neuron index $index")
-            require(row.size == header.size && row.first().toLongOrNull() == graph.ids[index]) {
+            require(row.size == header.size && row[idColumn].toLongOrNull() == graph.ids[index]) {
                 "Fly annotation ID does not match neuron index $index"
             }
             FlyAnnotation(graph.ids[index], header.zip(row).toMap())

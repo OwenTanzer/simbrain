@@ -17,7 +17,7 @@ class FlyAnnotationsTest {
         val file = Files.createTempFile("fly-annotations", ".tsv.gz").toFile()
         try {
             GZIPOutputStream(file.outputStream()).bufferedWriter().use {
-                it.write("root_id\tcell_type\tside\n11\tA\tleft\n22\t\tright\n33\tC\t\n")
+                it.write("supervoxel_id\troot_id\tcell_type\tside\n101\t11\tA\tleft\n202\t22\t\tright\n303\t33\tC\t\n")
             }
             val checksum = MessageDigest.getInstance("SHA-256").digest(file.readBytes()).joinToString("") { "%02x".format(it) }
             val lookup = FlyAnnotations(file.path, checksum)
