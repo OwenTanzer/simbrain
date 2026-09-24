@@ -1,0 +1,840 @@
+[
+  {
+    "root_id": "720575940624963786",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940624963786",
+    "bytes": 14856,
+    "sha256": "a3ade47158e9421e9209b7e34096a74145005f46e17e50b03a1e5c1b065ba8ad",
+    "vertices": 619,
+    "edges": 618,
+    "min_nm": [
+      466775.6875,
+      299330.75,
+      101219.9453125
+    ],
+    "max_nm": [
+      517824.84375,
+      379612.46875,
+      135069.796875
+    ],
+    "anchor_nearest_vertex_um": 0.2639510975252151
+  },
+  {
+    "root_id": "720575940630233916",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940630233916",
+    "bytes": 18432,
+    "sha256": "bce522bf364b05ea4d82219630d8e75b38ac94cefc3066b8b835a9c97214d8fe",
+    "vertices": 768,
+    "edges": 767,
+    "min_nm": [
+      459899.5625,
+      284206.96875,
+      88940.078125
+    ],
+    "max_nm": [
+      517637.59375,
+      377521.875,
+      139279.984375
+    ],
+    "anchor_nearest_vertex_um": 0.18940060998965427
+  },
+  {
+    "root_id": "720575940637568838",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940637568838",
+    "bytes": 15528,
+    "sha256": "937dfd3903257b6f1827a5fc15758118aa7d8115459977aa9cb51d838b76a3be",
+    "vertices": 647,
+    "edges": 646,
+    "min_nm": [
+      459349.6875,
+      302143.125,
+      101009.9375
+    ],
+    "max_nm": [
+      516659.40625,
+      376839.875,
+      139529.328125
+    ],
+    "anchor_nearest_vertex_um": 0.11519817572314853
+  },
+  {
+    "root_id": "720575940638202345",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940638202345",
+    "bytes": 19152,
+    "sha256": "c397611fee833ad89d5862af846920e079e33eb9e1b9761a1b399220f8777775",
+    "vertices": 798,
+    "edges": 797,
+    "min_nm": [
+      459558.34375,
+      286314.125,
+      88225.9296875
+    ],
+    "max_nm": [
+      517181.9375,
+      377596.5,
+      137926.640625
+    ],
+    "anchor_nearest_vertex_um": 0.3024373805279781
+  },
+  {
+    "root_id": "720575940617000768",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940617000768",
+    "bytes": 13632,
+    "sha256": "707ed5336dd31cd6af7fa56a4195d11ba612c81c59157b94ff8eefa5edd273ab",
+    "vertices": 568,
+    "edges": 567,
+    "min_nm": [
+      466664.28125,
+      305538.625,
+      102091.8046875
+    ],
+    "max_nm": [
+      513440.875,
+      376779.1875,
+      137366.875
+    ],
+    "anchor_nearest_vertex_um": 0.23083029533434432
+  },
+  {
+    "root_id": "720575940630797113",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940630797113",
+    "bytes": 12504,
+    "sha256": "f8d54d9dde2e42e48eca5fdd53b53819a77ff131906bfbe49fa2dca14b704c0a",
+    "vertices": 521,
+    "edges": 520,
+    "min_nm": [
+      462464.25,
+      316398.875,
+      103519.8984375
+    ],
+    "max_nm": [
+      514825.4375,
+      374552.6875,
+      137192.78125
+    ],
+    "anchor_nearest_vertex_um": 0.21043959653901617
+  },
+  {
+    "root_id": "720575940632889389",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940632889389",
+    "bytes": 14592,
+    "sha256": "432004b8fb913637dc85c21b9ec036214618d794e862c6a71775c12a71cdfb41",
+    "vertices": 608,
+    "edges": 607,
+    "min_nm": [
+      462239.71875,
+      313873.53125,
+      102898.25
+    ],
+    "max_nm": [
+      516023.125,
+      373501.15625,
+      137727.15625
+    ],
+    "anchor_nearest_vertex_um": 0.13881944788583525
+  },
+  {
+    "root_id": "720575940621754367",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940621754367",
+    "bytes": 13248,
+    "sha256": "63b40c25b7d7cd012400e684e559c4c347371a2a2e735d667519d139da96d670",
+    "vertices": 552,
+    "edges": 551,
+    "min_nm": [
+      466916.09375,
+      306719.6875,
+      103555.9765625
+    ],
+    "max_nm": [
+      511785.09375,
+      375952.375,
+      134167.46875
+    ],
+    "anchor_nearest_vertex_um": 0.20966782985702198
+  },
+  {
+    "root_id": "720575940621502051",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940621502051",
+    "bytes": 14280,
+    "sha256": "c9e6752880c9f5938463f0ae231f4d5c0fd33be89c3495a35c1e9b8c68372ac9",
+    "vertices": 595,
+    "edges": 594,
+    "min_nm": [
+      467644.28125,
+      306805.65625,
+      103160.75
+    ],
+    "max_nm": [
+      516259.125,
+      376103.1875,
+      136041.765625
+    ],
+    "anchor_nearest_vertex_um": 0.26003786908712934
+  },
+  {
+    "root_id": "720575940640649691",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940640649691",
+    "bytes": 14040,
+    "sha256": "766b3578b299db72c41b9c258214942565a5cd25d7b3fb4020089eb48ebd3bfa",
+    "vertices": 585,
+    "edges": 584,
+    "min_nm": [
+      466622.59375,
+      302848.1875,
+      102651.109375
+    ],
+    "max_nm": [
+      513922.125,
+      375738.75,
+      133400.15625
+    ],
+    "anchor_nearest_vertex_um": 0.10500305316664085
+  },
+  {
+    "root_id": "720575940639332736",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940639332736",
+    "bytes": 16608,
+    "sha256": "6f6468c466499b0d40d8c81ba59fd6ce6f79d555604dd1c7497cd203b363e567",
+    "vertices": 692,
+    "edges": 691,
+    "min_nm": [
+      461401.875,
+      308255.3125,
+      102698.3515625
+    ],
+    "max_nm": [
+      514429.96875,
+      378576.9375,
+      138526.3125
+    ],
+    "anchor_nearest_vertex_um": 0.09128480313394516
+  },
+  {
+    "root_id": "720575940616885538",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940616885538",
+    "bytes": 17856,
+    "sha256": "c6fdcc8ae58c93a7265cf44cfc104d1d2f08fa72983b63c3369c3322d60b921f",
+    "vertices": 744,
+    "edges": 743,
+    "min_nm": [
+      461049.65625,
+      307756.625,
+      103625.6171875
+    ],
+    "max_nm": [
+      511629.875,
+      378893.90625,
+      138525.609375
+    ],
+    "anchor_nearest_vertex_um": 0.30540996756984806
+  },
+  {
+    "root_id": "720575940639198653",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940639198653",
+    "bytes": 18744,
+    "sha256": "9b757e13a84bffc3402462f265182311230de33da3f4ad72a31d480f8f8012da",
+    "vertices": 781,
+    "edges": 780,
+    "min_nm": [
+      461386.90625,
+      307059.125,
+      102618.5546875
+    ],
+    "max_nm": [
+      514930.65625,
+      381303.34375,
+      135414.09375
+    ],
+    "anchor_nearest_vertex_um": 0.2476906178095547
+  },
+  {
+    "root_id": "720575940617937543",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940617937543",
+    "bytes": 17856,
+    "sha256": "3db31ea7fdded274b88909a93e225e61d3b76c5ed284406e42ad6fadc484210d",
+    "vertices": 744,
+    "edges": 743,
+    "min_nm": [
+      467230.84375,
+      318725.25,
+      101521.8984375
+    ],
+    "max_nm": [
+      551112.375,
+      375937.0625,
+      136180.609375
+    ],
+    "anchor_nearest_vertex_um": 0.2787042668481683
+  },
+  {
+    "root_id": "720575940632425919",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940632425919",
+    "bytes": 19704,
+    "sha256": "444531064570624ab43f36d34da9bf331eb527d760d52d1800c45073f8fb2c20",
+    "vertices": 821,
+    "edges": 820,
+    "min_nm": [
+      460584.875,
+      317713.46875,
+      102168.171875
+    ],
+    "max_nm": [
+      512919.5625,
+      376598.8125,
+      138030.96875
+    ],
+    "anchor_nearest_vertex_um": 0.20003201403931573
+  },
+  {
+    "root_id": "720575940633143833",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940633143833",
+    "bytes": 22056,
+    "sha256": "2d77889f4027ee775ceec9ec20acbf230ab088f2148785106c4e56f847c3f543",
+    "vertices": 919,
+    "edges": 918,
+    "min_nm": [
+      459984.6875,
+      318727.40625,
+      101142.84375
+    ],
+    "max_nm": [
+      564863.5,
+      374949.5625,
+      137591.3125
+    ],
+    "anchor_nearest_vertex_um": 1.6843081796412283
+  },
+  {
+    "root_id": "720575940612670570",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940612670570",
+    "bytes": 19560,
+    "sha256": "8d37bf0b7395853712c7f1a54841ca6b5697856d86fee022e7d5348a1b51266d",
+    "vertices": 815,
+    "edges": 814,
+    "min_nm": [
+      459557.6875,
+      272459.28125,
+      56608.21875
+    ],
+    "max_nm": [
+      557053.1875,
+      376187.40625,
+      133970.6875
+    ],
+    "anchor_nearest_vertex_um": 0.2166812288682332
+  },
+  {
+    "root_id": "720575940628853239",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940628853239",
+    "bytes": 18624,
+    "sha256": "fe870699be1a8ff1a0dc0bdb5685c03a2587339fad1ac8a642d1be9a1ccf03ba",
+    "vertices": 776,
+    "edges": 775,
+    "min_nm": [
+      465613.6875,
+      306408.25,
+      102219.2578125
+    ],
+    "max_nm": [
+      550052.375,
+      380272.875,
+      134766.03125
+    ],
+    "anchor_nearest_vertex_um": 0.0715667711607489
+  },
+  {
+    "root_id": "720575940629176663",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940629176663",
+    "bytes": 15264,
+    "sha256": "e051837d4791ab22c4290c8671e0695477a2b6a318f9418aefa3aeb3b2469a9e",
+    "vertices": 636,
+    "edges": 635,
+    "min_nm": [
+      460775.5,
+      319298.5625,
+      103408.9609375
+    ],
+    "max_nm": [
+      508015.6875,
+      374149.8125,
+      137579.203125
+    ],
+    "anchor_nearest_vertex_um": 0.2207647796901946
+  },
+  {
+    "root_id": "720575940611875570",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940611875570",
+    "bytes": 18720,
+    "sha256": "59e7fc0a999918898ed49b676beb771d6b8cca069339ce74e4d24c5c2e2b74ea",
+    "vertices": 780,
+    "edges": 779,
+    "min_nm": [
+      460919.8125,
+      315621.3125,
+      102602.3828125
+    ],
+    "max_nm": [
+      514330.71875,
+      378456.3125,
+      136945.6875
+    ],
+    "anchor_nearest_vertex_um": 0.11381552698172999
+  },
+  {
+    "root_id": "720575940632648868",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940632648868",
+    "bytes": 120888,
+    "sha256": "c10064a74b2c0b2b49fb7ee4e2695a766558fdb8ea3d2533b3264bce561d1385",
+    "vertices": 5037,
+    "edges": 5036,
+    "min_nm": [
+      529029.4375,
+      311605.84375,
+      79804.1796875
+    ],
+    "max_nm": [
+      603469.875,
+      362516.3125,
+      245714.390625
+    ],
+    "anchor_nearest_vertex_um": 0.04860037384517351
+  },
+  {
+    "root_id": "720575940655014049",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940655014049",
+    "bytes": 122664,
+    "sha256": "d447f169aec4018f3ca82800adcea237c92b8ac25e1e5d8cb125977e30f12a67",
+    "vertices": 5111,
+    "edges": 5110,
+    "min_nm": [
+      444852.8125,
+      298719.28125,
+      83629.109375
+    ],
+    "max_nm": [
+      538131.625,
+      360069.5,
+      245633.59375
+    ],
+    "anchor_nearest_vertex_um": 0.0425061490266776
+  },
+  {
+    "root_id": "720575940636675214",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940636675214",
+    "bytes": 115536,
+    "sha256": "dc9cd2d52e4990e98b78cf3b992fa0d47a3b9a4f02b8cb7e4fe194bb4f030fa9",
+    "vertices": 4814,
+    "edges": 4813,
+    "min_nm": [
+      504573.0,
+      317415.6875,
+      91258.5
+    ],
+    "max_nm": [
+      634599.5625,
+      365571.34375,
+      161642.03125
+    ],
+    "anchor_nearest_vertex_um": 0.08010855062234307,
+    "soma_nearest_vertex_um": 0.08010855062234307
+  },
+  {
+    "root_id": "720575940614763666",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940614763666",
+    "bytes": 114624,
+    "sha256": "72a5de927ad7541c6c01234d2f0e0ecd880ccbca46d0944104d103a5e3fbfea3",
+    "vertices": 4776,
+    "edges": 4775,
+    "min_nm": [
+      446236.34375,
+      314633.09375,
+      94386.484375
+    ],
+    "max_nm": [
+      540212.25,
+      368317.59375,
+      166401.171875
+    ],
+    "anchor_nearest_vertex_um": 0.4120292475420624,
+    "soma_nearest_vertex_um": 0.4120292475420624
+  },
+  {
+    "root_id": "720575940623718380",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940623718380",
+    "bytes": 80424,
+    "sha256": "d0e2add3b07c74a55357a3aac1befb8d91dbeac5bf7aa88ed8728187014b3f1f",
+    "vertices": 3351,
+    "edges": 3350,
+    "min_nm": [
+      476683.59375,
+      320598.96875,
+      84672.7890625
+    ],
+    "max_nm": [
+      636979.625,
+      364394.5625,
+      136434.4375
+    ],
+    "anchor_nearest_vertex_um": 0.504694369208767,
+    "soma_nearest_vertex_um": 0.5495920455801206
+  },
+  {
+    "root_id": "720575940620874757",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940620874757",
+    "bytes": 79968,
+    "sha256": "35847cf6dcc903efab8a3eeb2fbdb19f7fb6314198b09d21311953ba2a135e4e",
+    "vertices": 3332,
+    "edges": 3331,
+    "min_nm": [
+      447373.0,
+      315287.65625,
+      88643.2890625
+    ],
+    "max_nm": [
+      572787.9375,
+      368457.0,
+      151006.4375
+    ],
+    "anchor_nearest_vertex_um": 1.5860155907498394,
+    "soma_nearest_vertex_um": 0.7895783394328661
+  },
+  {
+    "root_id": "720575940641366517",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940641366517",
+    "bytes": 162888,
+    "sha256": "6169a65ea865f363e95dc57a61305c584a55216011c45578bf69980149c61757",
+    "vertices": 6787,
+    "edges": 6786,
+    "min_nm": [
+      448974.0,
+      287546.4375,
+      66087.5703125
+    ],
+    "max_nm": [
+      602750.0625,
+      363954.90625,
+      126792.296875
+    ],
+    "anchor_nearest_vertex_um": 0.9515435066159141,
+    "soma_nearest_vertex_um": 0.9515435066159141
+  },
+  {
+    "root_id": "720575940632648612",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940632648612",
+    "bytes": 163608,
+    "sha256": "b9208e6e3388bee6934cc449ee0967dde13b6d0212baca9ce58ee2ef1cb9eb36",
+    "vertices": 6817,
+    "edges": 6816,
+    "min_nm": [
+      426666.8125,
+      280022.84375,
+      75178.7578125
+    ],
+    "max_nm": [
+      598307.5625,
+      357766.15625,
+      130321.3359375
+    ],
+    "anchor_nearest_vertex_um": 0.3524471885998711,
+    "soma_nearest_vertex_um": 0.12338339226499005
+  },
+  {
+    "root_id": "720575940637763135",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940637763135",
+    "bytes": 116544,
+    "sha256": "61a831fdff741d65a0350c1108bae17217cb86450b0eb887cf5a16d8a592533d",
+    "vertices": 4856,
+    "edges": 4855,
+    "min_nm": [
+      489224.84375,
+      297349.03125,
+      62291.359375
+    ],
+    "max_nm": [
+      603389.0,
+      359655.59375,
+      120008.7265625
+    ],
+    "anchor_nearest_vertex_um": 0.24909282391172252,
+    "soma_nearest_vertex_um": 0.24909282391172252
+  },
+  {
+    "root_id": "720575940616103218",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940616103218",
+    "bytes": 118008,
+    "sha256": "c41f419f8abe025e2d018dfdf3d6caaa1015c5683d48074fe2fcc7edb06c20c1",
+    "vertices": 4917,
+    "edges": 4916,
+    "min_nm": [
+      440026.875,
+      296746.65625,
+      69489.875
+    ],
+    "max_nm": [
+      561900.5625,
+      360104.25,
+      129093.7578125
+    ],
+    "anchor_nearest_vertex_um": 0.3810796065980721,
+    "soma_nearest_vertex_um": 0.378490202077739
+  },
+  {
+    "root_id": "720575940630461660",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940630461660",
+    "bytes": 228120,
+    "sha256": "fd61f3b01ac9591a8a2f1c86a08d19db19c5d2fe28a59db43d1084f7b67f0b36",
+    "vertices": 9505,
+    "edges": 9504,
+    "min_nm": [
+      484604.5625,
+      303500.125,
+      57913.90625
+    ],
+    "max_nm": [
+      633497.6875,
+      364405.78125,
+      185395.15625
+    ],
+    "anchor_nearest_vertex_um": 0.36580138640644183,
+    "soma_nearest_vertex_um": 0.36580138640644183
+  },
+  {
+    "root_id": "720575940638103349",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940638103349",
+    "bytes": 235920,
+    "sha256": "4fee5d9caeb601562c2388186fd241591f181d43f716d6334d63c73f7197563c",
+    "vertices": 9830,
+    "edges": 9829,
+    "min_nm": [
+      429953.75,
+      293131.6875,
+      62032.53125
+    ],
+    "max_nm": [
+      541664.0,
+      357587.15625,
+      195151.21875
+    ],
+    "anchor_nearest_vertex_um": 0.6311122892795604,
+    "soma_nearest_vertex_um": 0.24815696080760183
+  },
+  {
+    "root_id": "720575940626557442",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940626557442",
+    "bytes": 260880,
+    "sha256": "e120a1899cddeb957f0dcf5e27898046173035e2ff2ab788d6acbcb096f04e3f",
+    "vertices": 10870,
+    "edges": 10869,
+    "min_nm": [
+      529597.4375,
+      297618.46875,
+      78509.015625
+    ],
+    "max_nm": [
+      607671.8125,
+      371972.09375,
+      251121.265625
+    ],
+    "anchor_nearest_vertex_um": 0.2371544052174922,
+    "soma_nearest_vertex_um": 0.28411176174889785
+  },
+  {
+    "root_id": "720575940645045527",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940645045527",
+    "bytes": 152352,
+    "sha256": "81888da09e460da9ebe2c9624111ae8cb32249dfe0df18763882bc569809a8ad",
+    "vertices": 6348,
+    "edges": 6347,
+    "min_nm": [
+      443092.3125,
+      287956.3125,
+      90125.59375
+    ],
+    "max_nm": [
+      523105.625,
+      366277.59375,
+      250837.140625
+    ],
+    "anchor_nearest_vertex_um": 0.1536088377953174,
+    "soma_nearest_vertex_um": 0.1769012486044474
+  },
+  {
+    "root_id": "720575940627285267",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940627285267",
+    "bytes": 147840,
+    "sha256": "0f37b2d0ca507b458d35023604b3de0e55b97dcaa4d95e2bd665a6ba951466df",
+    "vertices": 6160,
+    "edges": 6159,
+    "min_nm": [
+      537537.3125,
+      311651.4375,
+      83611.7578125
+    ],
+    "max_nm": [
+      607765.75,
+      369505.71875,
+      231966.015625
+    ],
+    "anchor_nearest_vertex_um": 0.07314310840154817,
+    "soma_nearest_vertex_um": 0.5772732892135692
+  },
+  {
+    "root_id": "720575940610001220",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940610001220",
+    "bytes": 259560,
+    "sha256": "05e60110d0f56b192ac961c998a533d77fbea8d9ce428ef227fce86f84de7a76",
+    "vertices": 10815,
+    "edges": 10814,
+    "min_nm": [
+      441405.5,
+      277587.21875,
+      84345.1953125
+    ],
+    "max_nm": [
+      526736.3125,
+      372190.65625,
+      251541.0625
+    ],
+    "anchor_nearest_vertex_um": 0.10518910728310049,
+    "soma_nearest_vertex_um": 0.3070965074574736
+  },
+  {
+    "root_id": "720575940647030324",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940647030324",
+    "bytes": 264672,
+    "sha256": "5d8c57d1e8ffbc430764e787dc0883725b5045b4f23618793d9b27bcdcf57483",
+    "vertices": 11028,
+    "edges": 11027,
+    "min_nm": [
+      496249.6875,
+      276743.96875,
+      48919.98046875
+    ],
+    "max_nm": [
+      652758.25,
+      364456.59375,
+      160186.765625
+    ],
+    "anchor_nearest_vertex_um": 0.2011257333309444,
+    "soma_nearest_vertex_um": 0.2011257333309444
+  },
+  {
+    "root_id": "720575940631997032",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940631997032",
+    "bytes": 292464,
+    "sha256": "b9f059d2a4d337e58adf4245a7774374cc2ba4738670943fa02dc1a40c22c5d3",
+    "vertices": 12186,
+    "edges": 12185,
+    "min_nm": [
+      391862.25,
+      264327.03125,
+      51204.17578125
+    ],
+    "max_nm": [
+      557067.5625,
+      358715.9375,
+      165846.671875
+    ],
+    "anchor_nearest_vertex_um": 0.13457463731258018,
+    "soma_nearest_vertex_um": 0.13457463731258018
+  },
+  {
+    "root_id": "720575940607272649",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940607272649",
+    "bytes": 312624,
+    "sha256": "76c80b1b502e777532f8512987788ed3558a1ee064400dd1016e1fd8d16ed249",
+    "vertices": 13026,
+    "edges": 13025,
+    "min_nm": [
+      436899.28125,
+      309519.5,
+      74928.515625
+    ],
+    "max_nm": [
+      620288.4375,
+      364703.8125,
+      194938.734375
+    ],
+    "anchor_nearest_vertex_um": 0.9030133171916075,
+    "soma_nearest_vertex_um": 0.9030133171916075
+  },
+  {
+    "root_id": "720575940623211725",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940623211725",
+    "bytes": 328776,
+    "sha256": "889b7189376a00fa48d01e68f54238b7001154fe2a16c84ff45d3539b2c4878d",
+    "vertices": 13699,
+    "edges": 13698,
+    "min_nm": [
+      429928.46875,
+      301405.625,
+      83123.1875
+    ],
+    "max_nm": [
+      612197.125,
+      360618.96875,
+      200972.109375
+    ],
+    "anchor_nearest_vertex_um": 0.48762247866731917,
+    "soma_nearest_vertex_um": 0.48762247866731917
+  },
+  {
+    "root_id": "720575940629888530",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940629888530",
+    "bytes": 93600,
+    "sha256": "2324aab9ff4fd614337400227f0485cabeb4806846a871ba124acfdf048a546b",
+    "vertices": 3900,
+    "edges": 3899,
+    "min_nm": [
+      449379.9375,
+      309771.25,
+      95862.5
+    ],
+    "max_nm": [
+      565703.125,
+      368497.78125,
+      192788.015625
+    ],
+    "anchor_nearest_vertex_um": 0.10707680257829248,
+    "soma_nearest_vertex_um": 0.10707680257829248
+  },
+  {
+    "root_id": "720575940611015122",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940611015122",
+    "bytes": 86496,
+    "sha256": "571f4105d0b5276e60e434650f82595794b6537f9fce0f32c135dd0e7d2da49c",
+    "vertices": 3604,
+    "edges": 3603,
+    "min_nm": [
+      479398.78125,
+      319204.59375,
+      92447.2109375
+    ],
+    "max_nm": [
+      621454.8125,
+      365452.59375,
+      182659.8125
+    ],
+    "anchor_nearest_vertex_um": 0.12000426450145493,
+    "soma_nearest_vertex_um": 0.12000426450145493
+  },
+  {
+    "root_id": "720575940660219265",
+    "url": "https://flyem.mrc-lmb.cam.ac.uk/flyconnectome/flywire_skeletons_783/720575940660219265",
+    "bytes": 454248,
+    "sha256": "6a7fc2bf0106b7c106e96b6c7cc1c1789d1b99cda6903f0c38473dfe466f1799",
+    "vertices": 18927,
+    "edges": 18926,
+    "min_nm": [
+      492428.875,
+      308512.125,
+      37075.52734375
+    ],
+    "max_nm": [
+      619718.75,
+      367429.8125,
+      199644.78125
+    ],
+    "anchor_nearest_vertex_um": 0.5767552697412623,
+    "soma_nearest_vertex_um": 0.5767552697412623
+  }
+]

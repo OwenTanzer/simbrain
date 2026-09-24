@@ -78,6 +78,10 @@ class FlyBrainTest {
         assertEquals(138639, state.graph().size)
         assertEquals(15091983, state.graph().edges)
         assertEquals(20, state.stimulusIndices.size)
+        state.circuitView = FlyCircuitViewState().apply {
+            open = true; selectedId = 720575940623211725L; projection = "XZ"; mode = "Connectivity"
+            zoom = 2.0; panX = 18.0; displayedIds = longArrayOf(MN9_ID, selectedId)
+        }
         scope.workspace.iterateSuspend(37)
         val file = Files.createTempFile("flybrain-resume", ".zip").toFile()
         try {
@@ -88,6 +92,13 @@ class FlyBrainTest {
             reopened.iterateSuspend(63)
             val restoredArray = reopened.componentList.filterIsInstance<NetworkComponent>().first().network.getModels<NeuronArray>().first()
             val restored = restoredArray.dataHolder as FlyBrainState
+            assertNotNull(restored.circuitView)
+            assertEquals(state.circuitView!!.selectedId, restored.circuitView!!.selectedId)
+            assertEquals("XZ", restored.circuitView!!.projection)
+            assertEquals("Connectivity", restored.circuitView!!.mode)
+            assertEquals(2.0, restored.circuitView!!.zoom)
+            assertEquals(18.0, restored.circuitView!!.panX)
+            assertArrayEquals(state.circuitView!!.displayedIds, restored.circuitView!!.displayedIds)
             assertEquals(state.tick, restored.tick)
             assertEquals(state.randomState, restored.randomState)
             assertArrayEquals(state.voltage, restored.voltage, 0.0)

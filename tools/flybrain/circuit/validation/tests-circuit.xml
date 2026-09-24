@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.simbrain.custom_sims.simulations.neuroscience.FlyCircuitTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-09-24T05:51:40" hostname="MSI" time="90.465">
+  <properties/>
+  <testcase name="missing anatomy leaves verified connectivity and corrupt assets are rejected()" classname="org.simbrain.custom_sims.simulations.neuroscience.FlyCircuitTest" time="0.941"/>
+  <testcase name="live observer selection preserves every state value delayed event and spike across five conditions()" classname="org.simbrain.custom_sims.simulations.neuroscience.FlyCircuitTest" time="89.008"/>
+  <testcase name="preset resolves exact incident edges contacts and physical skeletons()" classname="org.simbrain.custom_sims.simulations.neuroscience.FlyCircuitTest" time="0.512"/>
+  <system-out><![CDATA[Circuit parity PASS: seed=42 rate=100.0 stimulus=true ticks=10000 spikes=8553
+Circuit parity PASS: seed=43 rate=100.0 stimulus=true ticks=10000 spikes=9088
+Circuit parity PASS: seed=44 rate=100.0 stimulus=true ticks=10000 spikes=8861
+Circuit parity PASS: seed=42 rate=100.0 stimulus=false ticks=10000 spikes=0
+Circuit parity PASS: seed=42 rate=200.0 stimulus=true ticks=10000 spikes=16098
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

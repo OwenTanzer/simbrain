@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.simbrain.custom_sims.simulations.neuroscience.FlyBrainTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-09-24T05:51:31" hostname="MSI" time="9.264">
+  <properties/>
+  <testcase name="outgoing silencing blocks transmission but preserves source firing()" classname="org.simbrain.custom_sims.simulations.neuroscience.FlyBrainTest" time="0.009"/>
+  <testcase name="full connectome workspace resumes exact pending events and random stream()" classname="org.simbrain.custom_sims.simulations.neuroscience.FlyBrainTest" time="9.175"/>
+  <testcase name="native array batches ten microsteps without changing dynamics()" classname="org.simbrain.custom_sims.simulations.neuroscience.FlyBrainTest" time="0.05"/>
+  <testcase name="matches upstream Brian2 voltage drive and spike timing()" classname="org.simbrain.custom_sims.simulations.neuroscience.FlyBrainTest" time="0.027"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.simbrain.custom_sims.simulations.neuroscience.FlyAnnotationsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-09-24T05:51:31" hostname="MSI" time="0.067">
+  <properties/>
+  <testcase name="looks up a row by graph index and preserves missing labels()" classname="org.simbrain.custom_sims.simulations.neuroscience.FlyAnnotationsTest" time="0.067"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
