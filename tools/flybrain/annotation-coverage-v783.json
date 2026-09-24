@@ -50,6 +50,5 @@
     "status": 655
   },
   "content_sha256": "699d5d3e6745a2ff2436f4fad5987f8a8d5f7a747da2682a4f9f1e9c44bd7dc4",
-  "output_sha256": "297a211a19f9decd45b39105ca52323a4601d7c364c0a7f59736c173cd6c7bab",
   "output_format": "gzip TSV in the Shiu v783 model's neuron order; root_id is the join key"
 }

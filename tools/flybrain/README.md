@@ -76,7 +76,7 @@ the pinned Shiu revision and FlyWire annotation release v2.1.0. It writes
 `simulations/data/flybrain/annotations-v783.tsv.gz` in exactly the model's
 neuron order, with all annotation columns retained, and
 `tools/flybrain/annotation-coverage-v783.json` with field coverage and output
-checksum. The sidecar is separate from the simulation and does not change its
+content checksum. The sidecar is separate from the simulation and does not change its
 firing dynamics. In the simulation, set a **Watch ID** and click **Apply + reset**, then
 **Inspect watch neuron** to see its annotation and strongest outgoing connections.
 If the sidecar has not been generated, the wiring remains available in that dialog;

@@ -95,7 +95,6 @@ def main():
         "extra_annotation_ids_sample": sorted(extra)[:10],
         "nonempty_model_fields": coverage,
         "content_sha256": content_sha256,
-        "output_sha256": hashlib.sha256(args.output.read_bytes()).hexdigest(),
         "output_format": "gzip TSV in the Shiu v783 model's neuron order; root_id is the join key",
     }
     args.report.parent.mkdir(parents=True, exist_ok=True)
