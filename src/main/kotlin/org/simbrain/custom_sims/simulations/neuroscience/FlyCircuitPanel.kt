@@ -20,7 +20,10 @@ class FlyCircuitPanel(
         private set
     @Volatile private var generation = 0
     private val worker = Executors.newSingleThreadExecutor { r -> Thread(r, "Fly circuit observer").apply { isDaemon = true } }
-    private val status = JLabel("Loading the verified feeding circuit…")
+    private val status = JTextArea("Loading the verified feeding circuit…", 2, 60).apply {
+        isEditable = false; lineWrap = true; wrapStyleWord = true; isOpaque = false
+        preferredSize = Dimension(900, 42); minimumSize = Dimension(200, 42)
+    }
     private val identity = JTextArea(5, 40).apply { isEditable = false; lineWrap = true; wrapStyleWord = true }
     private val activity = JLabel(" ")
     private val search = JTextField(view.selectedId.toString(), 21)
@@ -143,7 +146,7 @@ class FlyCircuitPanel(
         view.selectedId = c.graph.ids[index]; search.text = view.selectedId.toString()
         loadingSelection = true
         members.selectedIndex = memberOrder.indexOf(index)
-        canvas?.selected = index; canvas?.invalidateDrawing()
+        canvas?.selected = index; canvas?.repaint()
         incomingModel.rows = emptyList(); outgoingModel.rows = emptyList()
         incomingModel.fireTableDataChanged(); outgoingModel.fireTableDataChanged()
         identity.text = "${c.label(index)}\nLoading complete incoming and outgoing connections…"
@@ -172,7 +175,7 @@ class FlyCircuitPanel(
                             "${incoming.size} incoming / ${outgoing.size} outgoing; ${if (index in c.members) "in preset" else "outside preset"}. Double-click a connection to navigate.\n" +
                             "FlyWire v783 / annotation v2.1.0; literature aliases from Shiu source mapping and supplements. " +
                             (if (index in c.skeletons) "Verified arbor available." else "Arbor unavailable; any marker uses the annotation anchor.") + annotationWarning
-                        loadingSelection = false; showStatus(); canvas?.invalidateDrawing(); refreshActivity()
+                        loadingSelection = false; showStatus(); refreshActivity()
                     }
                 }
             } catch (e: Exception) {

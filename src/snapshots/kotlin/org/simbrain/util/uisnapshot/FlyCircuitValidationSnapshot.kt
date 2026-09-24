@@ -29,7 +29,11 @@ class FlyCircuitValidationSnapshot : UiSnapshotDef {
         }
         record("condition", condition); record("java", System.getProperty("java.version"))
         record("pid", ProcessHandle.current().pid()); record("max_heap_bytes", Runtime.getRuntime().maxMemory())
-        withContext(Dispatchers.Swing) { SimbrainDesktop.frame.setSize(1580, 980); SimbrainDesktop.frame.isVisible = true }
+        withContext(Dispatchers.Swing) {
+            SimbrainDesktop.frame.bounds = GraphicsEnvironment.getLocalGraphicsEnvironment().maximumWindowBounds
+            SimbrainDesktop.frame.extendedState = Frame.MAXIMIZED_BOTH
+            SimbrainDesktop.frame.isVisible = true
+        }
         flyBrainSimulation.run(desktop = SimbrainDesktop)
         val workspace = SimbrainDesktop.workspace
         fun state() = workspace.componentList.filterIsInstance<NetworkComponent>().first().network.getModels<NeuronArray>().first().dataHolder as FlyBrainState
@@ -171,6 +175,6 @@ class FlyCircuitValidationSnapshot : UiSnapshotDef {
             record("observer_threads_after_close", Thread.getAllStackTraces().keys.count { it.isAlive && it.name == "Fly circuit observer" })
         }
         record("result", "PASS")
-        withContext(Dispatchers.Swing) { SimbrainDesktop.frame.rootPane.apply { preferredSize = Dimension(1580, 980) } }
+        withContext(Dispatchers.Swing) { SimbrainDesktop.frame.rootPane.apply { preferredSize = size } }
     }
 }

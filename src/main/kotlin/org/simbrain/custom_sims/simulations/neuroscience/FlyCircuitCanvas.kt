@@ -91,6 +91,8 @@ internal class FlyCircuitCanvas(
             }
         }
         graphics.drawImage(image, 0, 0, null)
+        val overlay = graphics.create() as Graphics2D
+        try { drawSelection(overlay) } finally { overlay.dispose() }
     }
 
     private fun drawBase(g: Graphics2D) {
@@ -130,13 +132,26 @@ internal class FlyCircuitCanvas(
                 geometry.color = Color(187, 194, 203, 90)
                 for (i in circuit.contextPoints.indices step 24) geometry.fill(java.awt.geom.Rectangle2D.Float(circuit.contextPoints[i+x], circuit.contextPoints[i+y], .8f, .8f))
             }
-            displayed.filter { it != selected }.forEach { i ->
+            displayed.forEach { i ->
                 geometry.color = Color(153, 164, 181, 120); geometry.stroke = BasicStroke((.55 / scale).toFloat())
                 path(i)?.let { geometry.draw(it) }
             }
-            geometry.color = Color(181, 73, 36); geometry.stroke = BasicStroke((1.2 / scale).toFloat())
-            if (selected in displayed) path(selected)?.let { geometry.draw(it) }
             geometry.dispose()
+        }
+    }
+
+    // Selection changes reuse the expensive context/arbor raster and only draw this small overlay.
+    private fun drawSelection(g: Graphics2D) {
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON)
+        if (view.mode == "Anatomy" && selected in displayed) {
+            val geometry = g.create() as Graphics2D
+            try {
+                geometry.translate(offsetX - left * scale, offsetY - top * scale)
+                geometry.scale(scale, scale)
+                geometry.color = Color(181, 73, 36)
+                geometry.stroke = BasicStroke((1.2 / scale).toFloat())
+                path(selected)?.let { geometry.draw(it) }
+            } finally { geometry.dispose() }
         }
         val edges = circuit.internalConnections(displayed)
         val visible = (if (view.allEdges) edges else edges.filter { it.source == selected || it.target == selected }).take(2000)
