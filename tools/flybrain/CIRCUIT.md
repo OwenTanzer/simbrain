@@ -58,6 +58,8 @@ $env:FLY_CIRCUIT_CONDITION='C'
 
 Results are written under `build/circuit-validation-A`, `-B`, or `-C`. Case C exercises 100 cached selections while running, physical projections, zooming, numeric table sorting, external-partner navigation, bounded expansion/reset, ten close/open cycles, and saving/reopening the actual workspace. Its worker is checked for termination after closing. Timing thresholds and interpretation belong in the accompanying validation report; passing numerical tests alone does not prove desktop responsiveness.
 
+See the [MSI validation report](circuit/validation/README.md) for raw results, screenshots, measured targets and shared-machine limitations.
+
 ## Integration limits
 
 No new simulated scalar neurons or replacement dynamics are created. The existing sparse arrays remain authoritative. Incident metadata is read in bulk; incoming references are built on a worker, with a 32-neuron bounded cache for subsequent external incoming scans. Additional selected-neuron annotations have a 128-entry cache. Selected voltage/count snapshots use a short state lock and are displayed at 10 Hz. Anatomy is cached as drawing paths/images rather than hundreds of thousands of Swing objects.
