@@ -245,7 +245,7 @@ private suspend fun SimulationScope.setupFlyBrain(workspace: Workspace) {
                 val edges = (graph.offsets[i] until graph.offsets[i + 1]).sortedByDescending { kotlin.math.abs(graph.weights[it]) }
                 val details = edges.take(10).joinToString("\n") { "${graph.ids[graph.targets[it]]}: %.3f mV".format(graph.weights[it]) }
                 withContext(Dispatchers.Swing) {
-                    showMessageDialog("Neuron ${graph.ids[i]}\n$identity\n\n${edges.size} outgoing targets\n\nStrongest targets:\n$details", "Watch neuron")
+                    showMessageDialog("Neuron ${graph.ids[i]}\n$identity\n\n${edges.size} outgoing targets\n\nStrongest targets:\n$details", "Watch neuron", rows = 22, columns = 105)
                 }
             }.toolTipText = "Inspect the watched neuron's FlyWire annotation and strongest outgoing weights."
             status = addLabel(statusText()).apply { preferredSize = Dimension(350, 45) }
